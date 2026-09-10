@@ -1,0 +1,14 @@
+services:
+  polyswitch-cloud:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: polyswitch-cloud:latest
+    container_name: polyswitch-cloud
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - POLYSWITCH_RUNNER_URL=${POLYSWITCH_RUNNER_URL:-http://localhost:8799}
+      - POLYSWITCH_AUTH_TOKEN=${POLYSWITCH_AUTH_TOKEN:-}

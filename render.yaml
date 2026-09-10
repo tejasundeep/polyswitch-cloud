@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: polyswitch-cloud
+    runtime: node
+    buildCommand: pnpm install && pnpm build
+    startCommand: pnpm start
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: POLYSWITCH_RUNNER_URL
+        sync: false
+      - key: POLYSWITCH_AUTH_TOKEN
+        sync: false
